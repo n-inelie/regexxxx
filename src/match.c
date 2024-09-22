@@ -19,13 +19,16 @@ bool group_match(Group *g, char *text) {
                 }
             }
             if (s->count < s->min) {
+                s->count = 0;
                 return false;
             }
+            s->count = 0;
             break;
         case ITEM_SUB_GROUP:
             break;
         }
     }
+
     if (text[text_i] == '\0') {
         return true;
     }

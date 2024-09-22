@@ -6,3 +6,4 @@ struct sample {
 };
 
 void test_match_regex_single_char_plus(void);
+void test_match_regex_single_char_fixed(void);
