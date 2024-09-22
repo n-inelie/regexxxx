@@ -1,6 +1,7 @@
 #include "group.h"
 
 #include <assert.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 Group *group_create(const enum group_type type, const size_t min,
@@ -28,9 +29,7 @@ void group_destroy(Group *g) {
             free(g->items[i].s);
         }
     }
-    for (size_t i = 0; i < g->anchor_count; ++i) {
-        free(g->anchors);
-    }
+    free(g->anchors);
     free(g);
 }
 

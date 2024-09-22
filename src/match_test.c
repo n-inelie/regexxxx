@@ -56,7 +56,6 @@ void test_match_regex_single_char_plus(void) {
     };
 
     SAMPLES_REPORT(4);
-
     group_destroy(root);
 }
 
@@ -72,6 +71,22 @@ void test_match_regex_single_char_fixed(void) {
     };
 
     SAMPLES_REPORT(8);
+    group_destroy(root);
+}
 
+void test_match_regex_triple_concat_with_kleen_star(void) {
+    TEST_MATCH_DEFAULT_MESSAGE("ab*c");
+
+    Group *root = group_create(GROUP_CONCAT, 1, 1);
+    group_append_item_symbol(root, symbol_create('a', 1, 1));
+    group_append_item_symbol(root, symbol_create('b', 0, SIZE_MAX));
+    group_append_item_symbol(root, symbol_create('c', 1, 1));
+
+    struct sample samples[] = {
+        {"abc", true},    {"aa", false},     {"bac", false},    {"ac", true},
+        {"bc", false}, {"aaab", false}, {"abbcc", false}, {"abbbc", true},
+    };
+
+    SAMPLES_REPORT(8);
     group_destroy(root);
 }

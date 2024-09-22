@@ -7,3 +7,4 @@ struct sample {
 
 void test_match_regex_single_char_plus(void);
 void test_match_regex_single_char_fixed(void);
+void test_match_regex_triple_concat_with_kleen_star(void);
