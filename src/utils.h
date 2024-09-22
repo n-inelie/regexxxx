@@ -21,3 +21,5 @@
 
 
 #define ARRAY_SIZE(arr)  (sizeof(arr) / sizeof(arr[0]))
+
+#define BOOL_TO_STR(expr) ((expr) ? "true" : "false")
